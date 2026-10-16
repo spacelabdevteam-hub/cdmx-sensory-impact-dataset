@@ -38,10 +38,12 @@ tags:
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Platform: Space Journey](https://img.shields.io/badge/Platform-Space_Journey-F59E0B.svg)](https://spacejourney.app/)
-[![Mirror: GitHub Ready](https://img.shields.io/badge/GitHub-Public_Mirror-blue.svg)](https://github.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset)
+[![🤗 Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Datasets-yellow.svg)](https://huggingface.co/datasets/spacejourney/cdmx-sensory-impact-dataset)
+[![Mirror: GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset)
 
 **Principal Investigator & Author:** [Daniel Adolfo Duque Romero](https://spacejourney.app/)  
 **Curated & Maintained by:** [Space Journey Studio](https://spacejourney.app/)  
+**Hugging Face Hub Dataset:** [spacejourney/cdmx-sensory-impact-dataset](https://huggingface.co/datasets/spacejourney/cdmx-sensory-impact-dataset)  
 **City Exploration Hub:** [Guía Solarpunk de Ciudad de México (CDMX)](https://spacejourney.app/ciudad/cdmx/)  
 **Global Project Homepage:** [https://spacejourney.app/](https://spacejourney.app/)  
 **Sensory Itinerary Planner:** [https://spacejourney.app/en/itinerary-planner/](https://spacejourney.app/en/itinerary-planner/)  
@@ -129,13 +131,13 @@ $$\text{SIS} = 100 - \left( 0.35 \times \text{NoisePenalty} + 0.30 \times \text{
 ```python
 from datasets import load_dataset
 
-# 1-Line direct load from verified mirror
-dataset = load_dataset(
-    "csv", 
-    data_files="https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv"
-)
+# Official Hugging Face Hub Dataset loader
+dataset = load_dataset("spacejourney/cdmx-sensory-impact-dataset")
 
-# Convert to pandas or inspect records
+# Print first sanctuary record
+print(dataset["train"][0])
+
+# Direct conversion to pandas DataFrame
 df = dataset["train"].to_pandas()
 print(df[["id", "name", "acoustic_noise_db", "sis_score"]].head())
 ```
@@ -144,6 +146,7 @@ print(df[["id", "name", "acoustic_noise_db", "sis_score"]].head())
 ```python
 import pandas as pd
 
+# Load from Hugging Face Hub mirror or raw telemetry
 url = "https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv"
 df = pd.read_csv(url)
 
@@ -152,10 +155,10 @@ quiet_sanctuaries = df[df["acoustic_noise_db"] <= 30]
 print(quiet_sanctuaries[["id", "name", "acoustic_noise_db", "sis_score"]])
 ```
 
-### 3. DuckDB (Serverless SQL)
+### 3. DuckDB (Serverless SQL via Hugging Face Hub)
 ```sql
 SELECT id, name, category, sis_score, acoustic_noise_db, golden_hour_window
-FROM 'https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv'
+FROM 'hf://datasets/spacejourney/cdmx-sensory-impact-dataset/data/cdmx_sensory_impact_sis_v1.csv'
 ORDER BY sis_score DESC;
 ```
 
