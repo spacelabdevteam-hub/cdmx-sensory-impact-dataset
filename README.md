@@ -38,7 +38,7 @@ tags:
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Platform: Space Journey](https://img.shields.io/badge/Platform-Space_Journey-F59E0B.svg)](https://spacejourney.app/)
-[![Mirror: Hugging Face Ready](https://img.shields.io/badge/Hugging_Face-Compatible-yellow.svg)](https://spacejourney.app/ciudad/cdmx/)
+[![Mirror: GitHub Ready](https://img.shields.io/badge/GitHub-Public_Mirror-blue.svg)](https://github.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset)
 
 **Principal Investigator & Author:** [Daniel Adolfo Duque Romero](https://spacejourney.app/)  
 **Curated & Maintained by:** [Space Journey Studio](https://spacejourney.app/)  
@@ -51,9 +51,9 @@ tags:
 
 ## 📌 Dataset Summary
 
-The **Mexico City Sensory Impact Dataset (SIS)** provides an empirical, open-access sensory and acoustic benchmark across **15 verified contemplative experiences, quiet cloisters, and urban nature sanctuaries** in Mexico City (CDMX).
+The **Mexico City Sensory Impact Dataset (SIS)** is an empirical, open-access sensory and acoustic benchmark recording quantitative environmental, acoustic, and luminous telemetry across **15 verified contemplative experiences, quiet cloisters, and urban nature sanctuaries** in Mexico City (CDMX).
 
-In a high-density megalopolis with acute sensory friction, this catalog maps the city's hidden restorative sanctuaries: from the pre-Hispanic silence of Xochimilco's sunrise chinampa canals and high-altitude oyamel forests in Desierto de los Leones, to architectural sound refuges like Audiorama Chapultepec and Alberto Kalach's Biblioteca Vasconcelos.
+Reverse-engineered directly from the production telemetry of **Space Journey Studio** and aligned with the Rome V2 and Paris open benchmarks, this catalog maps the restorative topography of a high-density megalopolis: from the pre-Hispanic silence of Xochimilco's sunrise chinampa canals (15 dB) and high-altitude oyamel cloud forests in Desierto de los Leones (30 dB), to architectural sound refuges like Audiorama Chapultepec (20 dB) and Alberto Kalach's Biblioteca Vasconcelos (40 dB).
 
 Each record provides calibrated metrics evaluating ambient acoustic sound pressure (dB), pedestrian congestion, optimal atmospheric lighting windows, and physical energy expenditure.
 
@@ -66,19 +66,46 @@ The dataset is published in structured JSON (`data/cdmx_sensory_impact_sis_v1.js
 | Feature | Type | Description | Example |
 | :--- | :---: | :--- | :--- |
 | `id` | string | Unique node identifier (`L` = Free Restorative, `S` = Secret Sanctuary, `P` = Curated Premium) | `"L-01"` |
-| `name` | string | Official experience name | `"Audiorama Chapultepec: El refugio del silencio"` |
+| `name` | string | Official experience name (English) | `"Audiorama Chapultepec: Sound Refuge of Ahuehuetes"` |
+| `name_es` | string | Official experience name (Spanish) | `"Audiorama Chapultepec: El refugio del silencio"` |
 | `category` | string | Curation tier (`Free Restorative`, `Secret Sanctuary`, `Curated Premium`) | `"Free Restorative"` |
 | `neighborhood` | string | Urban district / borough | `"Bosque de Chapultepec (1ª Sección)"` |
-| `latitude` | float | Decimal coordinate WGS84 | `19.4206` |
-| `longitude` | float | Decimal coordinate WGS84 | `-99.1818` |
+| `latitude` | float | Decimal coordinate WGS84 | `19.41943` |
+| `longitude` | float | Decimal coordinate WGS84 | `-99.18129` |
 | `sis_score` | int | Sensory Impact Score (0 to 100 continuous restorative scale) | `97` |
-| `acoustic_noise_db` | int | Ambient sound pressure level (A-weighted decibels, dBA) | `34` |
-| `golden_hour_window` | string | Recommended contemplative lighting window | `"09:30 - 12:30 CST"` |
+| `acoustic_noise_db` | int | Ambient sound pressure level (A-weighted decibels, dBA) | `20` |
+| `golden_hour_window` | string | Recommended contemplative lighting window | `"09:00 - 12:30 CST"` |
 | `light_level_lux` | int | Ambient luminous flux under optimal window (Lux) | `1900` |
 | `energy_cost_score` | int | Physical exertion index (1 = Minimal / Flat, 5 = High fatigue) | `1` |
 | `crowd_density_index` | float | Congestion index (0.00 = Solitary sanctuary, 1.00 = Acute mass crowding) | `0.05` |
 | `canonical_url` | string | Verified endpoint on Space Journey | `"https://spacejourney.app/experiencia/audiorama-chapultepec-el-refugio-del-silencio/"` |
-| `description` | string | Architectural and contemplative qualitative narrative | `"Santuario botánico rodeado de ahuehuetes centenarios..."` |
+| `description` | string | Architectural and contemplative qualitative narrative | `"Botanical sound sanctuary shaded by century-old ahuehuetes..."` |
+| `golden_spot_tips` | string | Micro-location vantage point for optimal sensory resonance | `"Blue armchair facing the volcanic grotto..."` |
+
+---
+
+## 🏛️ Master Catalog: 15 Verified Experiences
+
+### 🌿 Free Restorative (5 Nodes)
+* **L-01 | Audiorama Chapultepec (20 dB · SIS 97):** Shaded by century-old ahuehuetes with strict community silence and classical audio diffusion.
+* **L-02 | Huerto Roma Verde (40 dB · SIS 93):** Agroecological community permaculture with bamboo geodesic domes and melipona bee sanctuaries.
+* **L-03 | Kiosko Morisco (45 dB · SIS 89):** Intricate 1884 cast-iron neo-Mudejar pavilion in Santa María la Ribera.
+* **L-04 | Parque México (50 dB · SIS 87):** Art Deco elliptical 9-hectare canopy with Lindbergh Forum and dense bamboo sound buffers.
+* **L-05 | Las Islas UNAM (55 dB · SIS 85):** Modernist campus esplanade on volcanic pedregal facing Juan O'Gorman mineral stone murals.
+
+### 🗝️ Secret Sanctuary (5 Nodes)
+* **S-01 | Desierto de los Leones (30 dB · SIS 95):** 17th-century Discalced Carmelite cloister enveloped in high-mountain oyamel cloud forests.
+* **S-02 | Biblioteca Vasconcelos (40 dB · SIS 92):** Alberto Kalach's matrix of suspended glass bookshelves inside a 26,000 sqm endemic garden.
+* **S-03 | Coyoacán Francisco Sosa (45 dB · SIS 90):** River-stone avenue with bougainvillea volcanic walls and quiet Plaza de la Conchita.
+* **S-04 | Plaza San Jacinto (50 dB · SIS 88):** Shaded San Ángel colonial courtyards, fountain whispers, and open-air artists' studios.
+* **S-05 | Plaza Santo Domingo (55 dB · SIS 84):** Historic viceregal arcades preserving centuries-old analog letterpress typing rituals.
+
+### ✨ Curated Premium (5 Nodes)
+* **P-01 | Xochimilco Sunrise Cuemanco (15 dB · SIS 98):** Zero-emission electric/poled trajinera navigation through pre-Hispanic mist-veiled chinampas.
+* **P-02 | Teotihuacán Hot Air Flight (25 dB · SIS 96):** Silent aerostatic thermal ascension above the Pyramids of the Sun and Moon at dawn.
+* **P-03 | Pujol & Quintonil High Gastronomy (40 dB · SIS 92):** Ancestral corn, wild quelites, and intimate acoustic architecture in Polanco.
+* **P-04 | Museo Nacional de Antropología (35 dB · SIS 91):** Pedro Ramírez Vázquez waterfall canopy ('El Paraguas') providing acoustic protection.
+* **P-05 | Templo Mayor Sacred Axis (45 dB · SIS 88):** Suspended catwalks over superimposed Mexica cosmic strata and Coyolxauhqui monolith.
 
 ---
 
@@ -94,39 +121,25 @@ $$\text{SIS} = 100 - \left( 0.35 \times \text{NoisePenalty} + 0.30 \times \text{
 * **ExertionPenalty (Weight: 20%):** Physical exertion metric (1 to 5 scale accounting for elevation gradient, steps, and urban surface friction).
 * **LightBonus (Weight: 15%):** Solar quality coefficient rewarding warm, glare-free golden hour irradiance (2,000 to 3,500 Lux).
 
-### Acoustic Benchmarks in CDMX:
-* **Deep Restorative Sanctuaries (< 38 dB):** Ex-Convento Desierto de los Leones (32 dB), Audiorama Chapultepec (34 dB), Biblioteca Vasconcelos (35 dB), Xochimilco Amanecer Cuemanco (36 dB).
-* **Contemplative Heritage Havens (38 - 48 dB):** Huerto Roma Verde (41 dB), Coyoacán Francisco Sosa (42 dB), Las Islas UNAM (43 dB), San Jacinto (44 dB), Kiosko Morisco (45 dB), Parque México (46 dB).
-* **Controlled Monumental Spaces (48 - 54 dB):** Templo Mayor (50 dB), Plaza de Santo Domingo (52 dB).
-
 ---
 
 ## 💻 Quickstart & Reproducibility
 
-### 1. Python (Hugging Face `datasets`)
-```python
-from datasets import load_dataset
-
-# Load directly from the Space Journey repository
-dataset = load_dataset("spacelabdevteam-hub/cdmx-sensory-impact-dataset")
-print(dataset["train"][0])
-```
-
-### 2. Pandas (Direct URL)
+### 1. Python (Pandas)
 ```python
 import pandas as pd
 
 url = "https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv"
 df = pd.read_csv(url)
 
-# Filter Deep Restorative Sanctuaries (Noise < 40 dB)
-quiet_sanctuaries = df[df["acoustic_noise_db"] < 40]
-print(quiet_sanctuaries[["name", "acoustic_noise_db", "sis_score"]])
+# Filter Deep Restorative Sanctuaries (Noise <= 30 dB)
+quiet_sanctuaries = df[df["acoustic_noise_db"] <= 30]
+print(quiet_sanctuaries[["id", "name", "acoustic_noise_db", "sis_score"]])
 ```
 
-### 3. DuckDB (Serverless SQL)
+### 2. DuckDB (Serverless SQL)
 ```sql
-SELECT name, category, sis_score, acoustic_noise_db, golden_hour_window
+SELECT id, name, category, sis_score, acoustic_noise_db, golden_hour_window
 FROM 'https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv'
 ORDER BY sis_score DESC;
 ```
@@ -143,7 +156,7 @@ If you utilize this dataset in academic, urban planning, or software application
   title        = {Mexico City (CDMX) Sensory Impact & Acoustic Tourism Dataset (SIS)},
   month        = oct,
   year         = 2026,
-  publisher    = {GitHub / Hugging Face Mirror},
+  publisher    = {Space Journey Studio / GitHub / Hugging Face},
   version      = {v1.0.0},
   url          = {https://github.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset}
 }
