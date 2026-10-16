@@ -40,6 +40,7 @@ tags:
 [![Platform: Space Journey](https://img.shields.io/badge/Platform-Space_Journey-F59E0B.svg)](https://spacejourney.app/)
 [![🤗 Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Datasets-yellow.svg)](https://huggingface.co/datasets/spacejourney/cdmx-sensory-impact-dataset)
 [![Mirror: GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spacelabdevteam-hub/cdmx-sensory-impact-dataset/blob/main/explore_cdmx_sensory_impact.ipynb)
 
 **Principal Investigator & Author:** [Daniel Adolfo Duque Romero](https://spacejourney.app/)  
 **Curated & Maintained by:** [Space Journey Studio](https://spacejourney.app/)  
@@ -126,6 +127,11 @@ $$\text{SIS} = 100 - \left( 0.35 \times \text{NoisePenalty} + 0.30 \times \text{
 ---
 
 ## 💻 Quickstart & Reproducibility
+
+### 0. 🚀 Interactive Google Colab (One-Click Live Execution)
+Run live sensory telemetry queries and Solarpunk data visualizations directly in Google's cloud with zero local setup:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spacelabdevteam-hub/cdmx-sensory-impact-dataset/blob/main/explore_cdmx_sensory_impact.ipynb)
 
 ### 1. Hugging Face (`datasets` library)
 ```python
