@@ -125,7 +125,22 @@ $$\text{SIS} = 100 - \left( 0.35 \times \text{NoisePenalty} + 0.30 \times \text{
 
 ## 💻 Quickstart & Reproducibility
 
-### 1. Python (Pandas)
+### 1. Hugging Face (`datasets` library)
+```python
+from datasets import load_dataset
+
+# 1-Line direct load from verified mirror
+dataset = load_dataset(
+    "csv", 
+    data_files="https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv"
+)
+
+# Convert to pandas or inspect records
+df = dataset["train"].to_pandas()
+print(df[["id", "name", "acoustic_noise_db", "sis_score"]].head())
+```
+
+### 2. Python (Pandas)
 ```python
 import pandas as pd
 
@@ -137,7 +152,7 @@ quiet_sanctuaries = df[df["acoustic_noise_db"] <= 30]
 print(quiet_sanctuaries[["id", "name", "acoustic_noise_db", "sis_score"]])
 ```
 
-### 2. DuckDB (Serverless SQL)
+### 3. DuckDB (Serverless SQL)
 ```sql
 SELECT id, name, category, sis_score, acoustic_noise_db, golden_hour_window
 FROM 'https://raw.githubusercontent.com/spacelabdevteam-hub/cdmx-sensory-impact-dataset/main/data/cdmx_sensory_impact_sis_v1.csv'
